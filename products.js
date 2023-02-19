@@ -17,8 +17,11 @@ getproducto(){
 }
 
 #verificaCode(){
-    
-
+    const code =this.code
+    const codeVerifica = this.producto.find(producto=>producto.code===code)
+    ?code
+    :this.code
+    return code
 
 }
 
@@ -35,7 +38,7 @@ agregarProducto(nombre,descripcion="n/a",image="n/a", precio,code,categoria,stoc
         descripcion,
         image,
         precio,
-        code,
+        code:this.#verificaCode(),
         categoria,
         stock,
     }
@@ -47,9 +50,11 @@ agregarProducto(nombre,descripcion="n/a",image="n/a", precio,code,categoria,stoc
 
 }
 const manager = new Tienda();
-manager.agregarProducto("camisa","algodo","r1",30,001,"ropa")
-manager.agregarProducto("cadena","oro 18k","j1",300,002,"joyas")
-manager.agregarProducto("anillo","oro 24k", "j2",400,003,"joyas")
+manager.agregarProducto("camisa","algodo",1,30,001,"ropa")
+manager.agregarProducto("cadena","oro 18k",2,300,002,"joyas")
+manager.agregarProducto("anillo","oro 24k", 3,400,003,"joyas")
+// manager.agregarProducto("pulsera","oro 24k", 3,500,003,"joyas")
+
 
 
 

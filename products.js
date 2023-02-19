@@ -26,7 +26,8 @@ getproductoById(){
 
 }
 
-agregarProducto(nombre,descripcion,image, precio,stock=30,code){
+
+agregarProducto(nombre,descripcion="n/a",image="n/a", precio,code,categoria,stock=30){
 
     const producto={
         id:this.#agregarId(),
@@ -34,19 +35,28 @@ agregarProducto(nombre,descripcion,image, precio,stock=30,code){
         descripcion,
         image,
         precio,
-        stock,
         code,
-       
+        categoria,
+        stock,
     }
     this.producto.push(producto)
-}
+    console.log(producto)
+ }
 
+ 
 
 }
 const manager = new Tienda();
-manager.agregarProducto("evento1","lugar1",30)
-manager.agregarProducto("evento2","lugar2",60)
-manager.agregarProducto("evento3","lugar3",90)
+manager.agregarProducto("camisa","algodo","r1",30,001,"ropa")
+manager.agregarProducto("cadena","oro 18k","j1",300,002,"joyas")
+manager.agregarProducto("anillo","oro 24k", "j2",400,003,"joyas")
 
 
-console.log(manager)
+
+
+
+
+
+
+
+

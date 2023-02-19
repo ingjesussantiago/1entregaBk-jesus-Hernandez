@@ -1,20 +1,20 @@
-class TickManager{
+class Tienda{
 
 constructor(){
-    this.evento=[]
+    this.producto=[]
 }
 
 getEventos(){
-    return this.evento
+    return this.producto
 }
 
 agregarEvento(nombre,lugar, precio,capacidad=50,fecha=new Date){
 
-const id=this.evento.length ===0
+const id=this.producto.length ===0
 ?1
-:this.evento[this.evento.length-1].id+1
+:this.producto[this.producto.length-1].id+1
 
-    const evento={
+    const producto={
         id,
         nombre,
         lugar,
@@ -23,12 +23,12 @@ const id=this.evento.length ===0
         fecha,
         participantes:[]
     }
-    this.evento.push(evento)
+    this.producto.push(producto)
 }
 
 
 }
-const manager = new TickManager();
+const manager = new Tienda();
 manager.agregarEvento("evento1","lugar1",30)
 manager.agregarEvento("evento2","lugar2",60)
 

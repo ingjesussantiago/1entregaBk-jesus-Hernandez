@@ -4,24 +4,39 @@ constructor(){
     this.producto=[]
 }
 
-getEventos(){
+getproducto(){
     return this.producto
 }
 
-agregarEvento(nombre,lugar, precio,capacidad=50,fecha=new Date){
+#agregarId(){
+    
+    const id=this.producto.length ===0
+    ?1
+    :this.producto[this.producto.length-1].id+1
+    return id
+}
 
-const id=this.producto.length ===0
-?1
-:this.producto[this.producto.length-1].id+1
+#verificaCode(){
+    
+
+
+}
+
+getproductoById(){
+
+}
+
+agregarProducto(nombre,descripcion,image, precio,stock=30,code){
 
     const producto={
-        id,
+        id:this.#agregarId(),
         nombre,
-        lugar,
+        descripcion,
+        image,
         precio,
-        capacidad,
-        fecha,
-        participantes:[]
+        stock,
+        code,
+       
     }
     this.producto.push(producto)
 }
@@ -29,7 +44,9 @@ const id=this.producto.length ===0
 
 }
 const manager = new Tienda();
-manager.agregarEvento("evento1","lugar1",30)
-manager.agregarEvento("evento2","lugar2",60)
+manager.agregarProducto("evento1","lugar1",30)
+manager.agregarProducto("evento2","lugar2",60)
+manager.agregarProducto("evento3","lugar3",90)
+
 
 console.log(manager)

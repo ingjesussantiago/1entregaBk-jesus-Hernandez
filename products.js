@@ -23,8 +23,8 @@ agregarProducto(nombre,descripcion,image, precio,code,categoria,stock=30){
             categoria,
             stock,
         }
-        if (!producto.nombre) {
-            console.log("campos obligatorios");
+        if (!producto.nombre || !producto.descripcion || !producto.image || !producto.precio || !producto.code || !producto.categoria || !producto.stock) {
+            console.log("Tiene campos vacios son campos obligatorios");
             return this.productos
            
         }
@@ -42,11 +42,6 @@ agregarProducto(nombre,descripcion,image, precio,code,categoria,stock=30){
 
 #agregarId(){
 
-
-
-
-
-
     
     const id=this.productos.length ===0
      ?1
@@ -56,7 +51,6 @@ agregarProducto(nombre,descripcion,image, precio,code,categoria,stock=30){
 
     
 }
-
 
 #verificaCode(){
 
@@ -75,7 +69,7 @@ getProductoById(id) {
 
 }
 const manager = new Tienda();
-manager.agregarProducto("camisa","algodo","a",30, 1,"ropa")
+manager.agregarProducto("camisa","algodo","a",200, 1,"ropa")
 manager.agregarProducto("pantalon","oro 18k","b",300, 2,"joyas")
 // manager.agregarProducto("cadena","oro 18k","b",300,3,"joyas")
 

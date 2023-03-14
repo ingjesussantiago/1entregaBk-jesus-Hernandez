@@ -1,21 +1,19 @@
 class Tienda{
 
 constructor(){
-    this.producto=[]
+    this.productos=[]
 }
 
 getproducto(){
-    return this.producto
+    return this.productos
 }
 
 agregarProducto(nombre,descripcion,image, precio,code,categoria,stock=30){
 
+  
 
-  
-  
+  const producto={
     
-        
-        const producto={
             id:this.#agregarId(),
             nombre,
             descripcion,
@@ -25,45 +23,50 @@ agregarProducto(nombre,descripcion,image, precio,code,categoria,stock=30){
             categoria,
             stock,
         }
+        if (!producto.nombre) {
+            console.log("campos obligatorios");
+            return this.productos
+           
+        }
 
-        
-        this.producto.push(producto)
-        console.log(producto);
-        this.#verificaCode()
-     
-       
+        if (this.productos.find((p)=>p.code===code)) {
+     console.log("verifique el codigo, esta repetido");
+     return code
+    }  
+
+    
+        this.productos.push(producto)
+        console.log(producto)
+         
      }
 
 #agregarId(){
+
+
+
+
+
+
     
-    const id=this.producto.length ===0
+    const id=this.productos.length ===0
      ?1
-    :this.producto[this.producto.length-1].id+1 
+    :this.productos[this.productos.length-1].id+1
     return id
+
+
     
 }
 
 
 #verificaCode(){
 
- const code =this.producto.some(element =>element.code ===this.producto.code)
-    code
-    ? console.log("repetido")
-    : this.code
-    
-   
-// if (this.producto.some(element =>element.code ===this.producto.code) ){
-//     console.log('Error: El código del producto ya existe')
-//     return;
-// }
-
 
 }
 
 getProductoById(id) {
-    const producto = this.products.find((p) => p.id === id);
-    if (producto) {
-        return producto;
+    const productos = this.productos.find((p) => p.id === id);
+    if (productos) {
+        return productos;
     } else {
         console.log('Error: Not found');
     }
@@ -72,10 +75,12 @@ getProductoById(id) {
 
 }
 const manager = new Tienda();
-manager.agregarProducto("camisa","algodo",1,30, 1,"ropa")
-manager.agregarProducto("cadena","oro 18k",2,300,2,"joyas")
-manager.agregarProducto("anillo","oro 24k", 3,400,3,"joyas")
-manager.agregarProducto("pulsera","oro 24k", 4,500,3,"joyas")
+manager.agregarProducto("camisa","algodo","a",30, 1,"ropa")
+manager.agregarProducto("pantalon","oro 18k","b",300, 2,"joyas")
+// manager.agregarProducto("cadena","oro 18k","b",300,3,"joyas")
+
+// console.log(manager.getProductoById(1));
+
 
 
 
